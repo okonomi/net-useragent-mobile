@@ -112,7 +112,7 @@ abstract class Net_UserAgent_Mobile_Common
     protected $_rawModel;
 
 
-    var $_uid;
+    var $_userid;
 
     /**#@-*/
 
@@ -451,13 +451,12 @@ abstract class Net_UserAgent_Mobile_Common
      */
     public function getUID()
     {
-        if (is_null($this->_uid)) {
+        if (is_null($this->_userid)) {
             require_once 'Net/UserAgent/Mobile/UserID.php';
-            $userid = Net_UserAgent_Mobile_UserID::factory($this);
-            $this->_uid = $userid->getRawData();
+            $this->_userid = Net_UserAgent_Mobile_UserID::factory($this);
         }
 
-        return $this->_uid;
+        return $this->_userid->getRawData();
     }
 
     /**#@-*/
