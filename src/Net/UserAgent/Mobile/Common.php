@@ -111,7 +111,10 @@ abstract class Net_UserAgent_Mobile_Common
      */
     protected $_rawModel;
 
-
+    /**
+     * {@link Net_UserAgent_Mobile_UserID} object
+     * @var object {@link Net_UserAgent_Mobile_UserID}
+     */
     protected $_userid;
 
     /**#@-*/
