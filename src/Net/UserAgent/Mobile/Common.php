@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 
 /**
@@ -110,6 +110,9 @@ abstract class Net_UserAgent_Mobile_Common
      * @since Property available since Release 0.31.0
      */
     protected $_rawModel;
+
+
+    var $_uid;
 
     /**#@-*/
 
@@ -446,13 +449,16 @@ abstract class Net_UserAgent_Mobile_Common
      * @return string
      * @since Method available since Release 1.0.0RC1
      */
-    public function getUID() {}
+    public function getUID()
+    {
+        if (is_null($this->_uid)) {
+            require_once 'Net/UserAgent/Mobile/UserID.php';
+            $userid = Net_UserAgent_Mobile_UserID::factory($this);
+            $this->_uid = $userid->getRawData();
+        }
 
-    /**#@-*/
-
-    /**#@+
-     * @access protected
-     */
+        return $this->_uid;
+    }
 
     /**#@-*/
 
